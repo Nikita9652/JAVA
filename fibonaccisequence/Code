@@ -1,0 +1,32 @@
+import java.util.Scanner;
+
+public class FibonacciSequence {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the value of 'n': ");
+        int n = scanner.nextInt();
+        scanner.close();
+
+        System.out.println("Fibonacci Sequence up to the " + n + "-th term:");
+        for (int i = 1; i <= n; i++) {
+            int fibonacciNumber = generateFibonacci(i);
+            System.out.print(fibonacciNumber + " ");
+        }
+    }
+
+    public static int generateFibonacci(int n) {
+        if (n <= 2) {
+            return 1;
+        } else {
+            int a = 1;
+            int b = 1;
+            int result = 0;
+            for (int i = 3; i <= n; i++) {
+                result = a + b;
+                a = b;
+                b = result;
+            }
+            return result;
+        }
+    }
+}
